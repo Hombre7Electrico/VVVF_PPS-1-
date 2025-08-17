@@ -17,3 +17,16 @@ login::~login()
 {
     delete ui;
 }
+
+void login::on_pushButton_clicked()
+{
+    qApp->quit();
+}
+
+
+void login::on_pushButton_2_clicked()
+{
+        instanciadb = new dbmain(this);
+        instanciadb->show();
+}
+
