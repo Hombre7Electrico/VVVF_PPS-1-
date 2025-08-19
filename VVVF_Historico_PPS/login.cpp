@@ -1,5 +1,7 @@
 #include "login.h"
 #include "./ui_login.h"
+#include <QMessageBox>
+#include <qpixmap>
 
 login::login(QWidget *parent)
     : QMainWindow(parent)
@@ -26,7 +28,16 @@ void login::on_pushButton_clicked()
 
 void login::on_pushButton_2_clicked()
 {
+    QString user= ui->logUser->text();
+    QString pass= ui->logPass->text();
+
+    if(user== "admin" && pass== "123456"){
         instanciadb = new dbmain(this);
         instanciadb->show();
+    }else{
+        QMessageBox::critical(this,"Error","Error de autentificación");
+        ui->logUser->clear();
+        ui->logPass->clear();
+    }//if else validacion de usuario
 }
 
